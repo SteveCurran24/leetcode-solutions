@@ -1,33 +1,30 @@
 ## Two Sum
 
-The key takeaway from this problem was understanding two possible solutions:
-- Using a nested loop for `O(n²)` search time.
-- Using a hash map for `O(n)` complexity.
+The key takeaway from this was using either a nested loop for **O(n²)** search time, or a **hash map** for **O(n)** complexity.  
+I did some research into how hash maps work.  
 
-I did some research into how hash maps work:
-- **Hash maps** use a hashing algorithm to store values based on key–value pairs, giving `O(1)` average search time.
-- The key’s memory location is determined by computing something like `hash(10)`.  
-  When a `10` is encountered again, `hash(10)` is recomputed.  
-  If the value already exists, it’s reused; otherwise, it’s stored.
+- **Hash maps** – Hashing algorithm used to store values based on key pairs. **O(1)** search time.  
+  The key location in memory is stored at `hash(10)`. When a `10` is encountered again, `hash(10)` is computed.  
+  If the value is there, it is left alone. If it is not, it is stored. Etc.
 
 ## Valid Parentheses
 
-This problem illustrates the use of a stack in Python. A list provides all of the functionality of a stack, using `.append()` for push and `.pop()` for pop operations.
+This illustrates the use of a stack in Python — a list has all of the functionality of a stack.  
+You use `.append` for push and `.pop` for pop.  
 
-- I created a dictionary to store the key–value pairs in *reverse* order, meaning that closing brackets are used as keys.  
-  This allows direct verification when popping from the stack.
+- I created a dictionary to store the keypairs, and the "reverse" order.  
+  Meaning that I set the closing bracket values to be the key, so that when I pop I can just verify the dictionary correctly.  
 
-For example:  
-If I encounter `}`, I pop from the stack. Then, I take the `}` and look up its corresponding opening bracket in the dictionary.  
-If what I popped equals `{`, the match is valid. Otherwise, it fails.  
-The function also fails if the stack is empty when attempting to pop.
+Ie. If I encounter `}`, I will pop. I will then take the `}` that I encountered, and use that to look up the other side of it in the dictionary.  
+Because I assigned the value `{`, if what I popped equals `{` then it's good, else fail.  
+Also fail if stack is empty.
 
 ## Merge Two Sorted Lists
 
-This problem demonstrates the use of a linked list. It was somewhat troublesome for me in Python, but the key takeaway is to advance the pointer only once at a time.  
-Don’t try to do two additions to the list simultaneously. Creating a head node is fine, but **keep the head**. Even if the head’s value isn’t needed, it’s important to maintain it so that the linked list construction remains simple and valid.  
-If the head value isn’t needed, just return `head.next`.
-
+This demonstrates the use of a linked list. Troublesome for me in Python, but the key takeaway is to only advance the pointer once at a time.  
+Don't try to do two additions to the list at the same time. Also, creating a head is fine, but I want to **KEEP** the head.  
+Even if I don't need the value at the head, it's important to keep it so that construction of the LL will remain valid/simple.  
+If I don't need the head value, just return `head.next`.
 ```python
 while list1 is not None and list2 is not None:
     if list1.val <= list2.val:
@@ -40,27 +37,93 @@ while list1 is not None and list2 is not None:
         list2 = list2.next
 ```
 
+
+
+- The above code illustrates only advancing the pointer for `list1` and `list3` or `list2` and `list3` by one step.  
+- Don't forget to add the rest of a list if one of the lists empties (for not equivalent list lengths).
+
+
 ## Best Time to Buy and Sell Stock
 
-This problem demonstrates the **sliding window** technique.
+This problem demonstrates the sliding window theory.
 
 **Requirements:**
-- There must be a constraint that you *must buy before you sell* for this approach to work.
-- Always assume the first element is the lowest.
-- As you iterate through the array (list in Python), if you find a new minimum, set that as the new `min`.
-- If the current value is not less than `min`, subtract it by the `min` and track the difference.
-- If that difference is ever greater than the current maximum, replace the maximum with it.
+- Must have a constraint of "must buy before sell" for this theory to work.  
+- Always assume first element is lowest.  
+- As you work through the array (list in Python), if you find a new min, set that to `min`.  
+- If it's not less, subtract the value with the min and keep track.  
+- If that is ever a larger number, replace the max with it.  
 
-In essence, you’re keeping track of two values—`min` and `max profit`—and sliding them along the array, updating as needed.
-
+I am effectively just keeping track of two values and sliding them along the array, replacing as needed.
 
 ## Valid Palindrome
 
-The main idea of this problem is to keep track of **two moving pointers**.
+It appears that the point of this problem is to actually just keep track of two moving pointers.  
 
-**Reference:** [Two Pointers Technique — GeeksforGeeks](https://www.geeksforgeeks.org/two-pointers-technique/)
+[**Two Pointers Technique – GeeksforGeeks** – Documentation on Two Pointers technique  ](https://www.geeksforgeeks.org/dsa/two-pointers-technique/)
 
-- Use `letter.lower().isalnum()` for each character, moving one pointer from the left and one from the right, comparing as you go toward the middle.
-- Because strings are immutable in Python, I used a list to avoid repeatedly appending to a string — appending to a string in Python is **O(n²)**.
-- If you sanitize the string first, the **space complexity** becomes **O(n)**, but if you sanitize on the fly, it’s **O(1)**.
+- You `letter.lower().alnum()` each letter starting from the left, and starting from the right, and compare them to the middle.  
+- When running this code, because strings are immutable, I opted to run everything in a list so that I wouldn't have to append to the string. Appending to a string in Python is **O(n²)**.  
+- If you sanitize first, the space complexity becomes **O(n)**, but if you sanitize on the fly, the space complexity is **O(1)**.
+
+## Invert Binary Tree
+
+The point of the problem was to practice recursion. Straightforward enough — if `root` is `None`, return to stop it from looping forever.  
+Call the code on the left all the way to the bottom, then call it on the right.  
+After there are none left, it will return out and just swap each node.  
+
+The trickiest part was understanding the Python syntax.
+
+## Valid Anagram
+
+The point was to just employ a hash map, I believe.  
+You count the letter frequency in the first string and make sure it matches in the second.  
+Otherwise, it fails.
+
+# Binary Search
+
+This is a straightforward binary search. Initially, I was trying to use recursion, but that did not work because I was losing the index (which you need to return).
+
+Eventually, I settled on a **while loop**. While the low point and high point are not equal (and the low is less than the high), take the midpoint and see if the target is in the upper half or the lower half, and recalculate the midpoint appropriately.
+
+**Key logic:**
+
+- Left becomes → `high = mid - 1`  
+- Right becomes → `low = mid + 1`  
+- Midpoint calculation → `mid = (low + high) // 2`
+
+# Flood Fill
+
+The point of the problem was to employ the **DFS algorithm** to traverse a 2D array.  
+The portion that I stumbled with was twofold:
+
+- **I was returning prematurely.**  
+  I put too many returns in because I was too rigid in my mindset.  
+  The goal was to traverse to the bounds and then effectively return to the start point.  
+  I needed to just allow the flow of the algorithm naturally.  
+  For example:
+  ```
+  if up
+      do logic
+  if down
+      do logic
+  if left
+      do logic
+  if right
+      do logic
+  ```
+
+  **NOT**
+
+  ```
+  if up
+      do logic
+  else
+      return
+  ```
+  etc.
+- **I did not consider the inclusion of zero** in the length of the array.  
+  When doing a check against `len(image)`, I need to make sure to subtract 1 because of **0 inclusivity**.  
+  Silly mistake.
+
 
