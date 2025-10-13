@@ -1,3 +1,6 @@
+> **Note:** These are my personal notes for my own quick reference and learning.  
+> They’re informal, written in my own words, and focus on what *I* found important while solving each problem.
+
 ## Two Sum
 
 The key takeaway from this was using either a nested loop for **O(n²)** search time, or a **hash map** for **O(n)** complexity.  
