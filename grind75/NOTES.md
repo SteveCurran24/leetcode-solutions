@@ -52,3 +52,15 @@ This problem demonstrates the **sliding window** technique.
 - If that difference is ever greater than the current maximum, replace the maximum with it.
 
 In essence, you’re keeping track of two values—`min` and `max profit`—and sliding them along the array, updating as needed.
+
+
+## Valid Palindrome
+
+The main idea of this problem is to keep track of **two moving pointers**.
+
+**Reference:** [Two Pointers Technique — GeeksforGeeks](https://www.geeksforgeeks.org/two-pointers-technique/)
+
+- Use `letter.lower().isalnum()` for each character, moving one pointer from the left and one from the right, comparing as you go toward the middle.
+- Because strings are immutable in Python, I used a list to avoid repeatedly appending to a string — appending to a string in Python is **O(n²)**.
+- If you sanitize the string first, the **space complexity** becomes **O(n)**, but if you sanitize on the fly, it’s **O(1)**.
+
