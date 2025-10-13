@@ -151,3 +151,14 @@ The portion that I stumbled with was twofold:
 - **I did not consider the inclusion of zero** in the length of the array.  
   When doing a check against `len(image)`, I need to make sure to subtract 1 because of **0 inclusivity**.  
   Silly mistake.
+
+  ---
+## Lowest Common Anscestor
+
+This problem was to illustrate the use of a Binary Search Tree. I immediately recognized that if the node was a split, that was the answer. 
+  ```
+  if p is < node and q is > node
+    answer is node
+  ```
+
+I initially solved it with recursion, but the efficiency was on the low end compared to other solutions, so I re-wrote the code using a while loop for traversal. That increased the efficiency quite a bit. The Key takeaway is just BST traversal. 
