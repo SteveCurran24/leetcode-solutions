@@ -174,6 +174,9 @@ The problem overall is to track recursion. This problem was a large challenge be
 
 These math for balance is done in each individual recursive call on each subtree, and only the total height is tracked. If it ever becomes -1, it means the tree is imbalanced and it is safe to return all the way to to root.
 
+## Linked List Cycle
+This problem was another sliding pointer problem. This time, it was using an Algorithm called "Floyd's Algorithm", where one pointer moves faster than the next. If they meet, it's a loop. It also reinforced work with linked lists. The hardest part was understanding how to traverse the linked list in a clear way that would fail at appropriate times.
+[**Floyd's Cycle Finding Algorithm – GeeksforGeeks** – Documentation on Floyd's Cycle Finding Algorithm](https://www.geeksforgeeks.org/dsa/floyds-cycle-finding-algorithm/)
 
 
 
