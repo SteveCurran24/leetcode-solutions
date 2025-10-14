@@ -162,3 +162,27 @@ This problem was to illustrate the use of a Binary Search Tree. I immediately re
   ```
 
 I initially solved it with recursion, but the efficiency was on the low end compared to other solutions, so I re-wrote the code using a while loop for traversal. That increased the efficiency quite a bit. The Key takeaway is just BST traversal. 
+
+## Balanced Binary Tree
+The problem overall is to track recursion. This problem was a large challenge because I was struggling to understand what values actually needed to be tracked / returned, but settled on tracking a single total height, and returning a -1 if the subtree was imbalanced.
+
+- If the root is NULL, return 0, there is no additional height
+- recursively call left. If left height ever equals -1, it means that the left subtree is imbalanced and the code is safe to return -1 all the way out
+- recursively call right. Same as left, if its ever equal to -1 it is imbalanced
+- if the absolute value of left height minus right height is ever greater than 1 (ie imbalanced) return -1
+- otherwise return 1 plus whichver height is larger at that moment.
+
+These math for balance is done in each individual recursive call on each subtree, and only the total height is tracked. If it ever becomes -1, it means the tree is imbalanced and it is safe to return all the way to to root.
+
+
+
+
+
+
+
+
+
+
+
+
+
