@@ -178,6 +178,13 @@ These math for balance is done in each individual recursive call on each subtree
 This problem was another sliding pointer problem. This time, it was using an Algorithm called "Floyd's Algorithm", where one pointer moves faster than the next. If they meet, it's a loop. It also reinforced work with linked lists. The hardest part was understanding how to traverse the linked list in a clear way that would fail at appropriate times.
 [**Floyd's Cycle Finding Algorithm – GeeksforGeeks** – Documentation on Floyd's Cycle Finding Algorithm](https://www.geeksforgeeks.org/dsa/floyds-cycle-finding-algorithm/)
 
+## Implement Queue using Stacks
+
+This problem demonstrates the difference between a queue and a stack, specifically Fifo vs Filo. You can leverage two stacks by filling one, and popping and pushing into another. This way it reverses the order of the stack and the second stack effectively becomes the Queue. 
+ - Fill one stack, this will be First in, Last out
+ - Pop from stack one while pushing into stack two
+ - Pop from stack two after its full
+ - This will simulate First in First out.
 
 
 
