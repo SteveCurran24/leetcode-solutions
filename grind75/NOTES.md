@@ -108,9 +108,11 @@ Eventually, I settled on a **while loop**. While the low point and high point ar
 
 **Key logic:**
 
-- Left becomes → `high = mid - 1`  
-- Right becomes → `low = mid + 1`  
+- To adjust the lowpoint to the mid, low becomes → `low = mid + 1`  
+- To adjust the highpoint to the mid, high becomes → `high = mid - 1`  
 - Midpoint calculation → `mid = (low + high) // 2`
+
+This sliding of low and high progressively halves the search space, giving O(log n) time complexity and discarding useless values.
 
 ---
 
@@ -186,6 +188,15 @@ This problem demonstrates the difference between a queue and a stack, specifical
  - Pop from stack two after its full
  - This will simulate First in First out.
 
+
+## First Bad Version
+This was another example of Binary search with a slight caveat. This was more about finding the boundary, rather than the specific value, which changed the logic slightly. The key was still to use low mid and high values, search, and discard the left or right side of the dataset. The difference however, was in how we updated the boundaries. If mid WAS in the range, we wanted to keep it included rather than discard it like in the value search. 
+
+ - if isBadVersion(mid):  <-- this means that mid IS part of the failed subset, so it could be the version we're looking for.
+ - because of this, we move high to that point. In the classic binary search problem we removed that
+ - high = mid versus high = mid - 1
+
+The other nuanced difference is, while low < high: rather than while low < = high. When searching for a specific element, you need to be certain that you have covered everything, meaning you need to check when low == high. When checking for a turning point, you will eventually achieve that low = high naturally by just searching less than.
 
 
 
