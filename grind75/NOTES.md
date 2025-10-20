@@ -199,6 +199,9 @@ This was another example of Binary search with a slight caveat. This was more ab
 The other nuanced difference is, while low < high: rather than while low < = high. When searching for a specific element, you need to be certain that you have covered everything, meaning you need to check when low == high. When checking for a turning point, you will eventually achieve that low = high naturally by just searching less than.
 
 
+## Climbing Stairs
+This is just a fancier fibonnacci sequence. I want to do another solution for this and do a better writeup. It is on my todo.
+
 
 
 
