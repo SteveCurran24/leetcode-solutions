@@ -200,7 +200,11 @@ The other nuanced difference is, while low < high: rather than while low < = hig
 
 
 ## Climbing Stairs
-This is just a fancier fibonnacci sequence. I want to do another solution for this and do a better writeup. It is on my todo.
+The climbing stairs problem was an example of dynamic programming. Basically "Can this problem be broken into smaller problems that overlap and combine to form a solution". This was tough for me to understand but after some reading, dynamic programming is effectively just an optimization technique used to make recursion a bit better by increasing efficiency. With recursion, you are brute forcing every solution. If f(3) needs to be calculated, recursion calculates it each and every time unless you keep track of states (ie using the optimization method of DP). With Dynamic programming, you keep track of that state and don't re-solve. Dynamic programming can be done with recursion OR with iteration (using a for / while loop)
+
+[**Dynamic Programming or DP** – Documentation on Dynamic Programming](https://www.geeksforgeeks.org/competitive-programming/dynamic-programming/)
+
+I worked towards making a solution for the traveling salesman problem that illustrates this with a little more depth. [Link to that problem](https://github.com/SteveCurran24/practice-problem-solutions/blob/main/math-based-solutions/taveling-salesman-solver.py)
 
 
 
