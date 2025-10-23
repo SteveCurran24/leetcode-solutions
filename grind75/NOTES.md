@@ -206,7 +206,11 @@ The climbing stairs problem was an example of dynamic programming. Basically "Ca
 
 I worked towards making a solution for the traveling salesman problem that illustrates this with a little more depth. [Link to that problem](https://github.com/SteveCurran24/practice-problem-solutions/blob/main/math-based-solutions/taveling-salesman-solver.py)
 
-
+## Longest Palindrome
+This problem was about figuring out the rules behind forming a palindrome. Originally, I had a bunch of if/else statements trying to handle every case, but the logic is actually straightforward:
+ - If there are odd-count letters, exactly one can be used as the center.
+ - Every other odd count can contribute up to (count - 1) (to make it even).
+ - Even counts can be used entirely.
 
 
 
