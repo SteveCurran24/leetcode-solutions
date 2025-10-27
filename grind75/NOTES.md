@@ -212,7 +212,9 @@ This problem was about figuring out the rules behind forming a palindrome. Origi
  - Every other odd count can contribute up to (count - 1) (to make it even).
  - Even counts can be used entirely.
 
-
+## Reverse a Linked List
+This was tough to visualize. Execution was strait forward, but coding was tripping me up. I found a great video from "NeetCode" that walked me through. The explanation of how to move the pointers was enough to get me over the finishline. The key is just keeping track of moving pointers throughout a linked list. 
+[Reverse Linked List](https://www.youtube.com/watch?v=G0_I-ZF0S38&t=1s)
 
 
 
