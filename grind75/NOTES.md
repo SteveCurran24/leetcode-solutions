@@ -216,6 +216,9 @@ This problem was about figuring out the rules behind forming a palindrome. Origi
 This was tough to visualize. Execution was strait forward, but coding was tripping me up. I found a great video from "NeetCode" that walked me through. The explanation of how to move the pointers was enough to get me over the finishline. The key is just keeping track of moving pointers throughout a linked list. 
 [Reverse Linked List](https://www.youtube.com/watch?v=G0_I-ZF0S38&t=1s)
 
+## Majority Element
+Originally I solved this with a dictionary. Because that potentially copies the entire input, it becomes O(n) space. I followed the challenge to write it with linear time, and constant (O(1)) space. This requires a few passes. and leverages the [Boyer-Moore Majority voting algorithm](https://www.geeksforgeeks.org/theory-of-computation/boyer-moore-majority-voting-algorithm/). The idea is effectively that the majority value will always outpace any minority value. The second pass is to confirm that it fulfills the criteria n/2
+
 
 
 
