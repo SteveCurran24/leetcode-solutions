@@ -220,6 +220,14 @@ This was tough to visualize. Execution was strait forward, but coding was trippi
 Originally I solved this with a dictionary. Because that potentially copies the entire input, it becomes O(n) space. I followed the challenge to write it with linear time, and constant (O(1)) space. This requires a few passes. and leverages the [Boyer-Moore Majority voting algorithm](https://www.geeksforgeeks.org/theory-of-computation/boyer-moore-majority-voting-algorithm/). The idea is effectively that the majority value will always outpace any minority value. The second pass is to confirm that it fulfills the criteria n/2
 
 
-
-
-
+## Add Binary
+This problem taught me a few really solid tricks that I can potentially reuse in the future. First and foremost the overal logic behind the problem is incredibly straitforward. Typical binary addition rules apply, startin from the right-most digits. The tricks I learned / realized were relevant here:
+ - Leveraging a while loop to trace through the strings individually. 
+   - This allowed for better time complexity when compared to O(n^2) that nested loops would cause, and it was much simpler to visualize / code.
+ - Using %2 and //2.
+   - This was so helpful. I didn't put together the simpe logic of 1 + 0 = 1, 1 + 1 causes a remained but still = 0. I knew those rules for binary addition, but using division and modulo to handle the carry made it unbelievably easy.
+ - Using x = int(a[i]) if i >= 0 else 0 and y = int(b[j]) if j >= 0 else 0 were very simple ways to account for unequal length strings.
+   - Those values just become 0 when out of bounds. That's the key.  
+ - with the code, it is more efficient to build it backwards, and then reverse it. Alternatively you can "append to the front" but I believe that costs more overhead.
+ - Python join is potent here and will be a staple. Strings are immutable in python, so the cost overhead is exponentially high if you appent to a string over and over. It creates a new string each time.
+ - The math was significantly better. Originally I had considered creating massive if else statements but that was definitely the incorrect approach.
