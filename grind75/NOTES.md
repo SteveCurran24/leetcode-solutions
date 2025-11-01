@@ -231,3 +231,5 @@ This problem taught me a few really solid tricks that I can potentially reuse in
  - with the code, it is more efficient to build it backwards, and then reverse it. Alternatively you can "append to the front" but I believe that costs more overhead.
  - Python join is potent here and will be a staple. Strings are immutable in python, so the cost overhead is exponentially high if you appent to a string over and over. It creates a new string each time.
  - The math was significantly better. Originally I had considered creating massive if else statements but that was definitely the incorrect approach.
+
+## Diameter of Binary Tree
