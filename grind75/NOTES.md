@@ -236,4 +236,9 @@ This problem taught me a few really solid tricks that I can potentially reuse in
 This is a deeper version of the Height of a tree, where you just get two heights and compare them for distance. The key takeaway was the pseudo global variable in python, the use of an accumulation variable.
  - Diameter needs to be calculated at every node. In some circumstances, the root is not part of the overall longest route.
  - I ran a helper function to return the height and leveraged the accumulator to track diamter, only returning diamter from the main function
- - Because it is DFS, it is O(n) complexity. 
+ - Because it is DFS, it is O(n) complexity.
+
+## Middle of the Linked List
+I was able to use the slow/fast pointer trick so solve this one. I advance one pointer at a rate faster than the other. When the faster pointer hits the end, the first pointer is at the midway point. Syntatically it was tricky because I had to track the correct location of NULL values for the faster pointer. Overall it took about 10 minutes to solve. 
+
+
