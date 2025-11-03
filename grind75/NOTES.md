@@ -233,3 +233,7 @@ This problem taught me a few really solid tricks that I can potentially reuse in
  - The math was significantly better. Originally I had considered creating massive if else statements but that was definitely the incorrect approach.
 
 ## Diameter of Binary Tree
+This is a deeper version of the Height of a tree, where you just get two heights and compare them for distance. The key takeaway was the pseudo global variable in python, the use of an accumulation variable.
+ - Diameter needs to be calculated at every node. In some circumstances, the root is not part of the overall longest route.
+ - I ran a helper function to return the height and leveraged the accumulator to track diamter, only returning diamter from the main function
+ - Because it is DFS, it is O(n) complexity. 
