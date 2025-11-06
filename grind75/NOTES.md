@@ -241,4 +241,7 @@ This is a deeper version of the Height of a tree, where you just get two heights
 ## Middle of the Linked List
 I was able to use the slow/fast pointer trick so solve this one. I advance one pointer at a rate faster than the other. When the faster pointer hits the end, the first pointer is at the midway point. Syntatically it was tricky because I had to track the correct location of NULL values for the faster pointer. Overall it took about 10 minutes to solve. 
 
+## Contains Duplicate
+I used a loop with a dictionary to keep track of values as I went. If the value was ever in the dictionary, it would immediately return True. Otherwise it makes it through the array and returns False. This is worst case O(n) as it will only ever progress through the data once, and it is necessary to evaluate every entry in the array. 
+
 
