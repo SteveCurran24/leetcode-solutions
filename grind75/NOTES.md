@@ -245,6 +245,4 @@ I was able to use the slow/fast pointer trick so solve this one. I advance one p
 I used a loop with a dictionary to keep track of values as I went. If the value was ever in the dictionary, it would immediately return True. Otherwise it makes it through the array and returns False. This is worst case O(n) as it will only ever progress through the data once, and it is necessary to evaluate every entry in the array. 
 
 ## Max Subarray
-Keep track of the overall max and a temporary max. 
-Calculate from the first to the end. 
-Whenever the temporary max becomes <= 0 record what the max before that was, and move on disregarding everything before the value that pushed it to 0
+I need to circle back to this to get a better understanding of the single loop solution. 
