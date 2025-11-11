@@ -17,5 +17,5 @@ class Solution(object):
 
             if current > max_:
                 max_ = current
-
+                
         return max_
