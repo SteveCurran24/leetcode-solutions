@@ -4,16 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        n = len(nums)
+        total_nums = len(nums)
         max_ = nums[0]
         current = nums[0]
 
-        for i in range(1, n):
-            x = nums[i]
-            if current + x > x:
-                current = current + x
+        for i in range(1, total_nums):
+            temp = nums[i]
+            if current + temp > temp:
+                current = current + temp
             else:
-                current = x
+                current = temp
 
             if current > max_:
                 max_ = current
