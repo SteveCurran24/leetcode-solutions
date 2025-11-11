@@ -245,4 +245,4 @@ I was able to use the slow/fast pointer trick so solve this one. I advance one p
 I used a loop with a dictionary to keep track of values as I went. If the value was ever in the dictionary, it would immediately return True. Otherwise it makes it through the array and returns False. This is worst case O(n) as it will only ever progress through the data once, and it is necessary to evaluate every entry in the array. 
 
 ## Max Subarray
-I need to circle back to this to get a better understanding of the single loop solution. 
+The idea here is to search through the array. If adding the current best to the next number, would be GREATER than the next number, than that's good. We only ever care about increasing our total. If adding the current best to the next number would be smaller than just taking the next number, we're going to discard everything before. With that outcome, even if it's just a single element, that larger value in the array becomes the largest sub array, so we don't care about anything before it. 
