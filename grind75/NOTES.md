@@ -246,3 +246,12 @@ I used a loop with a dictionary to keep track of values as I went. If the value 
 
 ## Max Subarray
 The idea here is to search through the array. If adding the current best to the next number, would be GREATER than the next number, than that's good. We only ever care about increasing our total. If adding the current best to the next number would be smaller than just taking the next number, we're going to discard everything before. With that outcome, even if it's just a single element, that larger value in the array becomes the largest sub array, so we don't care about anything before it. 
+
+## Insert Interval
+Compare the new interval values to the existing in a loop:
+ - if newInterval[0] > interval[1] - This means that the new interval lies completely to the right of the existing one, for example new interval = (5,6) existing = (1,2) 5 > 2, so the elements in order become (1,2), (5,6)
+   - In this case we just append the existing to our new list. and continue analyzing with our existing "new interval". This inherantly sorts the list.  
+ - if newInterval[1] < interval[0] - This means that the new interval lies completely to the left of the existing. For example new interval = (1,3) existing = (5,6). Because 3 < 5 the result is (1,3) (5,6)
+   - In this case, we append the newInterval, (placing it before the existing in the new array we're creating) the we set newInterval to interval to continue building the new list. (We could also break the array and just append the entire rest of the list, because it is ensured that the rest will be sorted. 
+ - Otherwise the values need to be merged. By setting the new interval bounds to the min of the two first elems, and the max of the two second elems, the elements are effectively being combined thus removing any overlap. Eventually the conditions from above will be met, and the rest of the list will be created.
+ - Finally, we append the newInterval, which is effectively just the last value created by the elif portion of the if statement inside of the loop
