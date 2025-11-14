@@ -256,5 +256,5 @@ Compare the new interval values to the existing in a loop:
  - Otherwise the values need to be merged. By setting the new interval bounds to the min of the two first elems, and the max of the two second elems, the elements are effectively being combined thus removing any overlap. Eventually the conditions from above will be met, and the rest of the list will be created.
  - Finally, we append the newInterval, which is effectively just the last value created by the elif portion of the if statement inside of the loop
 
- ## 01 Matrix
- This is going to be BFS, I need to relearn the algorithm before I can really implement it for this problem.
+ ## 🚩 Return after BFS - 01 Matrix
+I had to look up a solution. After revisiting BFS I am going revist this problem
