@@ -256,5 +256,35 @@ Compare the new interval values to the existing in a loop:
  - Otherwise the values need to be merged. By setting the new interval bounds to the min of the two first elems, and the max of the two second elems, the elements are effectively being combined thus removing any overlap. Eventually the conditions from above will be met, and the rest of the list will be created.
  - Finally, we append the newInterval, which is effectively just the last value created by the elif portion of the if statement inside of the loop
 
- ## 🚩 Return after BFS - 01 Matrix
-I had to look up a solution. After revisiting BFS I am going revist this problem
+ ## 01 Matrix
+ A few key insights:
+  - This is meant to be BFS because you want to find the **SHORTEST DISTANCE** to each 1. This is stated in the instructions: "distance of the nearest 0 for each cell."
+  - We're keeping track of the distances in a matrix to return. This is initialized with a -1 for each "1" position in the original matrix, for use later
+  - We use a queue of locations where initially, it is only the zero values stored.
+    - This is valuable, because it essentially lets us calculate the distance from each individual 0 to a 1. Importantly the distance from a 0 is 0 when the value is zero, meaning everything before that can effectively be ignored / discarded
+  - We pop locations from the front of the queue, this is BFS which is FIFO order, hence using a queue.
+  - I checked every neighbor with if statements (there is probably a more efficent way to write the code, but I wanted to prioritize explicit code for future reference)
+    - If the neighbor is a zero, it does nothing
+    - If the distance is non negative, it does nothing (the node has already been visited)
+    - if the distance of the neighbor is a -1 (ie, originally a 1) it increments the current distance(the node its currently on, This will be a 0 or greater value), and queues it. This keeps a running tally as it progresses through the matrix
+    - If the distance was a -1 it queues it again.
+
+ Once the queue is empty, the function returns the distance matrix.
+
+ **NOTE**
+A deque would be more efficient, but I use pop(0) for clarity.
+The if statements to check neighbors is written explicitly to mirror c or c++ Which I am more comfortable with. I am sure there is a much better pythonic equivalent
+This approach is O(n*m) which I read is ideal for this problem. The O(n\*m) comes from iterating over the entire matrix to populate the initial distance matrix and is required. 
+
+BFS guarantees shortest path in unweighted graphs (grids)
+propagates in layers (to fullfill BFS)
+Storing distances in-place prevents revisiting which would increase complexity. 
+
+
+
+
+
+
+
+
+
